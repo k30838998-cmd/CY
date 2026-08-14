@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>For Zhane 🎀</title>
+
+<style>
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&display=swap');
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:"Cormorant Garamond",Georgia,serif;
+    background:#fff8f9;
+    color:#43262c;
+    overflow-x:hidden;
+}
+
+/* OPENING */
+
+#opening{
+    position:fixed;
+    inset:0;
+    z-index:999;
+    background:
+        radial-gradient(circle at 20% 20%,rgba(181,31,53,.10),transparent 25%),
+        radial-gradient(circle at 80% 80%,rgba(181,31,53,.08),transparent 25%),
+        #fff8f9;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+
+    transition:
+        opacity 1.2s ease,
+        visibility 1.2s ease;
+}
+
+#opening.hide{
+    opacity:0;
+    visibility:hidden;
+    pointer-events:none;
+}
+
+.opening-content{
+    width:90%;
+    max-width:650px;
+
+    animation:
+        fadeUp 1.5s ease forwards;
+}
+
+.bow{
+    font-size:70px;
+    animation:
+        float 3s ease-in-out infinite;
+}
+
+.opening-small{
+    margin-top:15px;
+    letter-spacing:6px;
+    font-size:13px;
+    color:#9d4050;
+    text-transform:uppercase;
+}
+
+.opening-content h1{
+    font-family:"Great Vibes",cursive;
+    font-size:clamp(75px,16vw,135px);
+    color:#a71931;
+    font-weight:400;
+    line-height:1;
+    margin:15px 0;
+}
+
+.opening-text{
+    color:#79545b;
+    font-size:20px;
+    line-height:1.6;
+    margin-bottom:30px;
+}
+
+.open-button{
+    border:1px solid #a71931;
+    background:#b51f35;
+    color:white;
+
+    padding:15px 35px;
+
+    border-radius:50px;
+
+    font-family:"Cormorant Garamond",serif;
+    font-size:20px;
+
+    cursor:pointer;
+
+    box-shadow:
+        0 10px 30px rgba(167,25,49,.20);
+
+    transition:.4s;
+}
+
+.open-button:hover{
+    background:white;
+    color:#a71931;
+    transform:translateY(-5px);
+    box-shadow:
+        0 15px 35px rgba(167,25,49,.25);
+}
+
+
+/* MAIN */
+
+#main{
+    opacity:0;
+    transition:opacity 1.5s ease;
+}
+
+#main.show{
+    opacity:1;
+}
+
+
+/* HERO */
+
+.hero{
+    min-height:100vh;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    text-align:center;
+
+    padding:40px 20px;
+
+    position:relative;
+
+    background:
+        radial-gradient(circle at 15% 20%,rgba(181,31,53,.08),transparent 25%),
+        radial-gradient(circle at 85% 80%,rgba(181,31,53,.07),transparent 25%),
+        #fffafa;
+
+    overflow:hidden;
+}
+
+.hero-content{
+    position:relative;
+    z-index:2;
+
+    max-width:850px;
+
+    animation:
+        reveal 2s ease;
+}
+
+.hero-small{
+    letter-spacing:5px;
+    text-transform:uppercase;
+    color:#9d4050;
+    font-size:13px;
+    margin-bottom:20px;
+}
+
+.hero h1{
+    font-family:"Great Vibes",cursive;
+    font-size:clamp(75px,15vw,145px);
+    font-weight:400;
+    color:#a71931;
+    line-height:.9;
+
+    text-shadow:
+        1px 2px 0 #f5dce0;
+
+    margin-bottom:25px;
+}
+
+.hero p{
+    font-size:22px;
+    color:#6e4b52;
+}
+
+.scroll-text{
+    margin-top:40px;
+    font-size:14px;
+    letter-spacing:2px;
+    color:#9b626b;
+}
+
+
+/* FLOATING HEARTS */
+
+.heart{
+    position:absolute;
+
+    color:#b51f35;
+
+    font-size:25px;
+
+    opacity:.15;
+
+    animation:
+        floating 7s linear infinite;
+}
+
+.heart:nth-child(1){
+    left:8%;
+    bottom:-30px;
+    animation-delay:0s;
+}
+
+.heart:nth-child(2){
+    left:25%;
+    bottom:-30px;
+    animation-delay:2s;
+}
+
+.heart:nth-child(3){
+    left:55%;
+    bottom:-30px;
+    animation-delay:4s;
+}
+
+.heart:nth-child(4){
+    left:80%;
+    bottom:-30px;
+    animation-delay:1s;
+}
+
+.heart:nth-child(5){
+    left:92%;
+    bottom:-30px;
+    animation-delay:3s;
+}
+
+
+/* MESSAGE */
+
+.message-section{
+    max-width:950px;
+    margin:auto;
+
+    padding:100px 20px;
+}
+
+.section-title{
+    text-align:center;
+
+    font-family:"Great Vibes",cursive;
+
+    font-size:65px;
+
+    color:#a71931;
+
+    margin-bottom:10px;
+}
+
+.section-subtitle{
+    text-align:center;
+
+    color:#805b62;
+
+    font-size:18px;
+
+    margin-bottom:50px;
+}
+
+
+/* PHOTO */
+
+.photo-frame{
+    width:100%;
+    max-width:520px;
+    height:520px;
+
+    margin:0 auto 60px;
+
+    padding:9px;
+
+    background:white;
+
+    border:1px solid #d49aa3;
+
+    box-shadow:
+        0 20px 55px rgba(100,20,40,.14);
+
+    transform:rotate(-1deg);
+
+    animation:
+        photoReveal 1.5s ease;
+}
+
+.photo-frame img{
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+
+    display:block;
+}
+
+
+/* LETTER */
+
+.letter{
+    background:white;
+
+    border:1px solid #d9a3aa;
+
+    padding:55px;
+
+    border-radius:8px;
+
+    box-shadow:
+        0 20px 60px rgba(100,20,40,.09);
+
+    font-size:20px;
+
+    line-height:1.9;
+
+    position:relative;
+
+    animation:
+        letterReveal 1.5s ease;
+}
+
+.letter::before{
+    content:"🎀";
+
+    position:absolute;
+
+    top:-35px;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    background:#fff8f9;
+
+    padding:0 15px;
+
+    font-size:45px;
+}
+
+.letter strong{
+    color:#a71931;
+}
+
+.signature{
+    text-align:right;
+
+    color:#a71931;
+
+    font-size:22px;
+
+    font-weight:700;
+
+    margin-top:35px;
+}
+
+
+/* ENDING */
+
+.ending{
+    text-align:center;
+
+    padding:100px 20px;
+
+    background:white;
+
+    border-top:1px solid #e1b5bb;
+}
+
+.ending .bow{
+    font-size:55px;
+}
+
+.ending h2{
+    font-family:"Great Vibes",cursive;
+
+    font-size:clamp(55px,10vw,90px);
+
+    font-weight:400;
+
+    color:#a71931;
+
+    margin:15px 0;
+}
+
+.ending p{
+    max-width:650px;
+
+    margin:auto;
+
+    font-size:20px;
+
+    line-height:1.7;
+
+    color:#6e4b52;
+}
+
+footer{
+    text-align:center;
+
+    padding:30px;
+
+    background:#fff8f9;
+
+    color:#9a6068;
+}
+
+
+/* ANIMATIONS */
+
+@keyframes fadeUp{
+
+    from{
+        opacity:0;
+        transform:translateY(30px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+@keyframes reveal{
+
+    from{
+        opacity:0;
+        transform:translateY(35px) scale(.98);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0) scale(1);
+    }
+
+}
+
+@keyframes float{
+
+    0%,100%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-12px);
+    }
+
+}
+
+@keyframes floating{
+
+    from{
+        transform:translateY(0) rotate(0deg);
+        opacity:0;
+    }
+
+    20%{
+        opacity:.15;
+    }
+
+    to{
+        transform:translateY(-110vh) rotate(360deg);
+        opacity:0;
+    }
+
+}
+
+@keyframes photoReveal{
+
+    from{
+        opacity:0;
+        transform:translateY(40px) rotate(-4deg);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0) rotate(-1deg);
+    }
+
+}
+
+@keyframes letterReveal{
+
+    from{
+        opacity:0;
+        transform:translateY(50px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+
+/* MOBILE */
+
+@media(max-width:700px){
+
+    .letter{
+        padding:35px 22px;
+        font-size:18px;
+    }
+
+    .photo-frame{
+        height:420px;
+    }
+
+    .section-title{
+        font-size:52px;
+    }
+
+    .hero p{
+        font-size:19px;
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- OPENING SCREEN -->
+
+<div id="opening">
+
+    <div class="opening-content">
+
+        <div class="bow">
+            🎀
+        </div>
+
+        <div class="opening-small">
+            A little surprise for
+        </div>
+
+        <h1>
+            Zhane
+        </h1>
+
+        <p class="opening-text">
+            I made something for your 18th birthday.
+            <br>
+            Take a moment and open it. ❤️
+        </p>
+
+        <button
+            class="open-button"
+            onclick="openMessage()">
+
+            Open My Message ♡
+
+        </button>
+
+    </div>
+
+</div>
+
+
+
+<!-- MAIN WEBSITE -->
+
+<div id="main">
+
+
+    <!-- HERO -->
+
+    <section class="hero">
+
+        <div class="heart">♡</div>
+        <div class="heart">♡</div>
+        <div class="heart">♡</div>
+        <div class="heart">♡</div>
+        <div class="heart">♡</div>
+
+
+        <div class="hero-content">
+
+            <div class="hero-small">
+                A message made especially for you
+            </div>
+
+            <h1>
+                Happy 18th<br>
+                Birthday, Zhane!
+            </h1>
+
+            <p>
+                Some people come into our lives
+                and become memories we'll always be thankful for. ❤️
+            </p>
+
+            <div class="scroll-text">
+                ↓ Keep scrolling ↓
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- MESSAGE -->
+
+    <section class="message-section">
+
+        <h2 class="section-title">
+            A Message For You
+        </h2>
+
+        <p class="section-subtitle">
+            For you, Zhane. With love, from Kxn_eth. 🎀
+        </p>
+
+
+        <!-- PHOTO -->
+
+        <div class="photo-frame">
+
+            <img
+                src="Photo.jpg"
+                alt="Zhane">
+
+        </div>
+
+
+
+        <!-- LETTER -->
+
+        <div class="letter">
+
+            <p>
+
+                <strong>
+                    Happy 18th birthday, Zhane! 🥹❤️
+                </strong>
+
+            </p>
+
+            <br>
+
+
+            <p>
+
+                Grabe, 18 ka na. Parang kailan lang nung Grade 12,
+                15 ka palang. Hindi ko rin inexpect na sa simpleng
+                pagiging magkaklase natin, magiging ganito tayo ka-close.
+                Thank you kasi ever since, naging mabait ka sa akin/samin.
+                Sobrang genuine mo rin as a person, and siguro yun yung
+                isa sa mga dahilan kung bakit naging comfortable kami
+                sa'yo.
+
+            </p>
+
+            <br>
+
+
+            <p>
+
+                Kahit sobrang kulit mo minsan HAHAHA, at sobrang
+                soft-hearted mo, tinuring ka na talaga namin na parang
+                babaeng kapatid. Yung tipong aasarin ka namin,
+                kukulitin ka, pero at the same time, gusto rin namin
+                lagi kang okay.
+
+            </p>
+
+            <br>
+
+
+            <p>
+
+                Hindi man ako palaging vocal about these things,
+                pero I'm really thankful na nakilala kita.
+                Thank you for all the memories, sa mga tawanan,
+                sa mga random na kwentuhan, at kahit sa mga simpleng
+                moments na baka hindi natin napapansin ngayon pero
+                eventually magiging memories na lang natin.
+
+            </p>
+
+            <br>
+
+
+            <p>
+
+                Ngayong 18 ka na, don't be afraid to grow and become
+                the person you want to be. Marami ka pang pagdadaanan,
+                marami ka pang matututunan, and I'm sure may mga times
+                na mapapagod ka or madidiscourage ka.
+
+                Pero sana kahit ganun, piliin mo pa rin bumangon
+                at ipagpatuloy yung mga bagay na mahalaga sa'yo.
+
+            </p>
+
+            <br>
+
+
+            <p>
+
+                You're only 18, and it's okay if you're still figuring
+                things out. Hindi mo kailangang ikumpara yung sarili mo
+                sa ibang tao. Your journey is your own, and darating
+                din yung time na makikita mo kung bakit kailangan mong
+                pagdaanan yung mga bagay na pinagdadaanan mo ngayon.
+
+            </p>
+
+            <br>
+
+
+            <p>
+
+                And since you're such a soft-hearted person, sana
+                matutunan mo rin na hindi lahat ng tao deserve yung
+                kindness and energy na binibigay mo.
+
+                Continue being kind, pero don't forget to protect
+                yourself too.
+
+            </p>
+
+            <br>
+
+
+            <p>
+
+                You deserve people who will appreciate you, respect you,
+                and make you feel valued.
+
+                I'm really proud of the person you're becoming, Zhane.
+
+                From the girl I met in Grade 12, ngayon you're already
+                entering a new chapter of your life.
+
+            </p>
+
+            <br>
+
+
+            <p>
+
+                Ang dami mo pang mararanasan, ang dami mo pang dreams
+                na matutupad, and I hope you never stop believing
+                in yourself.
+
+                You deserve happiness, success, genuine friendships,
+                and people who will stay even when things aren't easy.
+
+            </p>
+
+            <br>
+
+
+            <p>
+
+                No matter where life takes us, sana hindi mawala
+                yung pagiging close natin.
+
+                Kahit hindi na tayo magkaklase tulad dati,
+                you'll always be one of those people I'll be grateful
+                that I met.
+
+            </p>
+
+            <br>
+
+
+            <p>
+
+                Happy 18th birthday, Zhane. ❤️
+
+                <br><br>
+
+                Stay kind, stay genuine, and stay the soft-hearted
+                person that we know and love.
+
+                <br><br>
+
+                Enjoy your day.
+
+                You deserve to be celebrated. 🥹❤️
+
+            </p>
+
+
+            <div class="signature">
+                — Kxn_eth ♡
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ENDING -->
+
+    <section class="ending">
+
+        <div class="bow">
+            🎀
+        </div>
+
+        <h2>
+            Happy 18th Birthday, Zhane!
+        </h2>
+
+        <p>
+
+            May this new chapter bring you more happiness,
+            more dreams, more memories, and all the good things
+            you deserve. ❤️
+
+        </p>
+
+    </section>
+
+
+    <footer>
+        Made with code, memories, and a little bit of love. ♡
+    </footer>
+
+
+</div>
+
+
+
+<!-- MUSIC -->
+
+<audio id="bgMusic" loop>
+
+    <source
+        src="music.mp3"
+        type="audio/mpeg">
+
+</audio>
+
+
+
+<script>
+
+function openMessage(){
+
+    const opening =
+        document.getElementById("opening");
+
+    const main =
+        document.getElementById("main");
+
+    const music =
+        document.getElementById("bgMusic");
+
+
+    /* START MUSIC */
+
+    music.volume = 0.35;
+
+    music.play().catch(function(){
+
+        console.log("Music could not autoplay.");
+
+    });
+
+
+    /* HIDE OPENING */
+
+    opening.classList.add("hide");
+
+
+    /* SHOW WEBSITE */
+
+    setTimeout(function(){
+
+        main.classList.add("show");
+
+    },500);
+
+}
+
+</script>
+
+
+</body>
+</html>
